@@ -22,7 +22,7 @@ $breakpoints : (
 @use './_responsiveMediaQuery.scss' as mq;
 ```
 
-### スマホでのみ縦並び、その他は横並びのレイアウト
+### スマホ　とタブレットで縦並び、その他は横並びのレイアウト
 
 ```scss
 .nav-bar {
