@@ -30,36 +30,40 @@ $range: (
   "xl": "screen and (min-width: #{map-get($breakpoints-min, "xl")})",
 ) !default;
 
-@mixin mq($breakpoint) {
+// 特定のサイズ以上でスタイルを適用
+@mixin more($breakpoint) {
   @media screen and (min-width: #{map-get($breakpoints-min, $breakpoint)}) {
     @content;
   }
 }
 
+// sm以上でスタイルを適用
 @mixin sm() {
   @media screen and (min-width: #{map-get($breakpoints-min, "sm")}) {
     @content;
   }
 }
 
+// md以上でスタイルを適用
 @mixin md() {
   @media screen and (min-width: #{map-get($breakpoints-min, "md")}) {
     @content;
   }
 }
 
+// lg以上でスタイルを適用
 @mixin lg() {
   @media screen and (min-width: #{map-get($breakpoints-min, "lg")}) {
     @content;
   }
 }
 
+// xl以上でスタイルを適用
 @mixin xl() {
   @media screen and (min-width: #{map-get($breakpoints-min, "xl")}) {
     @content;
   }
 }
-
 
 // 特定のサイズでのみスタイルを適用
 @mixin only ($size) {
@@ -94,7 +98,7 @@ $range: (
 // 一定以上の画面幅で表示
 @mixin show($size, $show-display-type: block) {
   display: none;
-  @include mq($size) {
+  @include more($size) {
     display: $show-display-type;
   }
 }
@@ -102,7 +106,7 @@ $range: (
 // 一定以上の画面幅で非表示
 @mixin hide($size, $show-display-type: block) {
     display: $show-display-type;
-  @include mq($size) {
+  @include more($size) {
     display: none;
   }
 }
