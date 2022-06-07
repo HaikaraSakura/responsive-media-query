@@ -61,12 +61,14 @@ $range: (
 }
 
 
+// 特定のサイズでのみスタイルを適用
 @mixin only ($size) {
   @media #{map-get($range, $size)} {
     @content;
   }
 }
 
+// 一定範囲のサイズでのみスタイルを適用
 @mixin range ($min, $max) {
   @media screen and (min-width: #{map-get($breakpoints-min, $min)}) and (max-width: #{map-get($breakpoints-max, $max)}) {
     @content;
@@ -74,7 +76,6 @@ $range: (
 }
 
 // 特定のサイズでのみ表示
-
 @mixin only-show ($size, $show-display-type: block) {
   display: none;
   @include only ($size) {
@@ -83,20 +84,9 @@ $range: (
 }
 
 // 一定範囲のサイズでのみ表示
-@mixin show-range ($min, $max, $show-display-type: block) {
+@mixin range-show ($min, $max, $show-display-type: block) {
   display: none;
   @include range ($min, $max) {
-    display: $show-display-type;
-  }
-}
-
-// 一定範囲のサイズでのみ非表示
-@mixin hide-range ($min, $max, $show-display-type: block) {
-  display: $show-display-type;
-  @include mq($min) {
-    display: none;
-  }
-  @include mq($max) {
     display: $show-display-type;
   }
 }
