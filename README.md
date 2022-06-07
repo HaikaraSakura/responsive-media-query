@@ -4,15 +4,6 @@
 
 ## ブレイクポイント
 
-- xs〜sm
-  スマホ
-- sm〜md
-  タブレット
-- md〜lg
-  ノートPC
-- lg〜xl
-  デスクトップPC
-
 ```scss
 $breakpoints : (
   "xs": ("min": "1px", "max": "399px"),
