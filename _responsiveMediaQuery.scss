@@ -1,0 +1,118 @@
+// ブレイクポイント
+$breakpoints : (
+  "xs": ("min": "1px", "max": "399px"),
+  "sm": ("min": "400px", "max": "799px"),
+  "md": ("min": "800px", "max": "999px"),
+  "lg": ("min": "1000px", "max": "1199px"),
+  "xl": ("min": "1200px")
+) !default;
+
+$breakpoints-min: (
+  "xs": #{map-get(map-get($breakpoints, "xs"), "min")},
+  "sm": #{map-get(map-get($breakpoints, "sm"), "min")},
+  "md": #{map-get(map-get($breakpoints, "md"), "min")},
+  "lg": #{map-get(map-get($breakpoints, "lg"), "min")},
+  "xl": #{map-get(map-get($breakpoints, "xl"), "min")}
+) !default;
+
+$breakpoints-max: (
+  "xs": #{map-get(map-get($breakpoints, "xs"), "max")},
+  "sm": #{map-get(map-get($breakpoints, "sm"), "max")},
+  "md": #{map-get(map-get($breakpoints, "md"), "max")},
+  "lg": #{map-get(map-get($breakpoints, "lg"), "max")},
+) !default;
+
+$range: (
+  "xs": "screen and (min-width: #{map-get($breakpoints-min, "xs")}) and (max-width: #{map-get($breakpoints-max, "xs")})",
+  "sm": "screen and (min-width: #{map-get($breakpoints-min, "sm")}) and (max-width: #{map-get($breakpoints-max, "sm")})",
+  "md": "screen and (min-width: #{map-get($breakpoints-min, "md")}) and (max-width: #{map-get($breakpoints-max, "md")})",
+  "lg": "screen and (min-width: #{map-get($breakpoints-min, "lg")}) and (max-width: #{map-get($breakpoints-max, "lg")})",
+  "xl": "screen and (min-width: #{map-get($breakpoints-min, "xl")})",
+) !default;
+
+@mixin mq($breakpoint) {
+  @media screen and (min-width: #{map-get($breakpoints-min, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media screen and (min-width: #{map-get($breakpoints-min, "sm")}) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (min-width: #{map-get($breakpoints-min, "md")}) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media screen and (min-width: #{map-get($breakpoints-min, "lg")}) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media screen and (min-width: #{map-get($breakpoints-min, "xl")}) {
+    @content;
+  }
+}
+
+
+@mixin only ($size) {
+  @media #{map-get($range, $size)} {
+    @content;
+  }
+}
+
+@mixin range ($min, $max) {
+  @media screen and (min-width: #{map-get($breakpoints-min, $min)}) and (max-width: #{map-get($breakpoints-max, $max)}) {
+    @content;
+  }
+}
+
+// 特定のサイズでのみ表示
+
+@mixin only-show ($size, $show-display-type: block) {
+  display: none;
+  @include only ($size) {
+    display: $show-display-type;
+  }
+}
+
+// 一定範囲のサイズでのみ表示
+@mixin show-range ($min, $max, $show-display-type: block) {
+  display: none;
+  @include range ($min, $max) {
+    display: $show-display-type;
+  }
+}
+
+// 一定範囲のサイズでのみ非表示
+@mixin hide-range ($min, $max, $show-display-type: block) {
+  display: $show-display-type;
+  @include mq($min) {
+    display: none;
+  }
+  @include mq($max) {
+    display: $show-display-type;
+  }
+}
+
+// 一定以上の画面幅で表示
+@mixin show($size, $show-display-type: block) {
+  display: none;
+  @include mq($size) {
+    display: $show-display-type;
+  }
+}
+
+// 一定以上の画面幅で非表示
+@mixin hide($size, $show-display-type: block) {
+    display: $show-display-type;
+  @include mq($size) {
+    display: none;
+  }
+}
