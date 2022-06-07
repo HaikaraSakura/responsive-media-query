@@ -77,6 +77,6 @@ $breakpoints : (
 ```scss
 .appStoreLink {
     // スマホとタブレットでのみ表示する
-    @include mq.show-range(xs, sm);
+    @include mq.range-show(xs, sm);
 }
 ```
