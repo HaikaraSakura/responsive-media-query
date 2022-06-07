@@ -46,37 +46,42 @@ $breakpoints : (
 ```scss
 .toggleIcon {
     display: none;
+    
+    // md以上で横並びに切り替え
     @include mq.only(xs) {
         display: block;
     }
 }
 ```
 
-### 特定のサイズでのみ要素を表示する
+### 特定のサイズでのみ要素を表示
 
 ```scss
 .toggleIcon {
+    // xsでのみ表示
     @include mq.only-show(xs);
 }
 ```
 
-### 一定の範囲のサイズでのみスタイルを適用する
+### 一定の範囲のサイズでのみスタイルを適用
 
 ```scss
 .appStoreLink {
     display: none;
-    // スマホとタブレットでのみ表示する
+    
+    // スマホとタブレットでのみ表示
     @include mq.range(xs, sm) {
         display: block;
     }
 }
 ```
 
-### 一定の範囲のサイズでのみ要素を表示する
+### 一定の範囲のサイズでのみ要素を表示
 
 ```scss
 .appStoreLink {
-    // スマホとタブレットでのみ表示する
+
+    // スマホとタブレットでのみ表示
     @include mq.range-show(xs, sm);
 }
 ```
