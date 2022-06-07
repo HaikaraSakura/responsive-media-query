@@ -22,7 +22,7 @@ $breakpoints : (
 @use './_responsiveMediaQuery.scss' as mq;
 ```
 
-### スマホ　とタブレットで縦並び、その他は横並びのレイアウト
+### スマホとタブレットで縦並び、その他は横並びのレイアウト
 
 ```scss
 .nav-bar {
@@ -44,7 +44,7 @@ $breakpoints : (
 .toggleIcon {
     display: none;
     
-    // ｘｓでのみ要素を表示
+    // xsでのみ要素を表示
     @include mq.only(xs) {
         display: block;
     }
@@ -77,7 +77,6 @@ $breakpoints : (
 
 ```scss
 .appStoreLink {
-
     // スマホとタブレットでのみ表示
     @include mq.range-show(xs, sm);
 }
