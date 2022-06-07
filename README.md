@@ -25,6 +25,12 @@ $breakpoints : (
 
 ## レスポンシブの例
 
+任意のファイルで、mixinの定義ファイルを呼び出す。
+
+```scss
+@use './_responsiveMediaQuery.scss' as mq;
+```
+
 ### スマホでのみ縦並び、その他は横並びのレイアウト
 
 ```scss
