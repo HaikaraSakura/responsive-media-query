@@ -47,13 +47,13 @@ $breakpoints : (
 }
 ```
 
-### 特定のサイズでのみスタイルを適用する
+### 特定のサイズでのみスタイルを適用
 
 ```scss
 .toggleIcon {
     display: none;
     
-    // md以上で横並びに切り替え
+    // mdでのみ要素を表示
     @include mq.only(xs) {
         display: block;
     }
