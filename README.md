@@ -53,7 +53,7 @@ $breakpoints : (
 .toggleIcon {
     display: none;
     
-    // mdでのみ要素を表示
+    // ｘｓでのみ要素を表示
     @include mq.only(xs) {
         display: block;
     }
@@ -64,7 +64,7 @@ $breakpoints : (
 
 ```scss
 .toggleIcon {
-    // xsでのみ表示
+    // xsでのみ要素を表示
     @include mq.only-show(xs);
 }
 ```
